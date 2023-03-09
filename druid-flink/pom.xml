@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>kafkajoin</groupId>
+  <artifactId>kafkajoin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+<dependencies>
+	
+	<dependency>
+ 	 <groupId>org.apache.flink</groupId>
+  		<artifactId>flink-java</artifactId>
+  	<version>1.16.0</version>
+	</dependency>
+	
+	<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-api-java</artifactId>
+    <version>1.16.0</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-api-java-bridge</artifactId>
+    <version>1.16.0</version>
+</dependency>
+
+	<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-streaming-java</artifactId>
+  <version>1.16.0</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-clients</artifactId>
+  <version>1.16.0</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.flink</groupId>
+  <artifactId>flink-connector-kafka</artifactId>
+  <version>1.16.0</version>
+</dependency>
+
+<dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+</dependencies>
+
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<version>3.1.0</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+					  <manifest>
+						<mainClass>p1.KafkaDemo</mainClass>
+					  </manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+				  <execution>
+					<id>make-assembly</id>
+                                        <!-- bind to the packaging phase -->
+					<phase>package</phase> 
+					<goals>
+						<goal>single</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>p1.KafkaDemo</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+	</plugins>
+</build>
+</project>
