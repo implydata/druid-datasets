@@ -1,6 +1,5 @@
 # druid-datasets
-Sample data and scripts that can be used to play with Apache Druid
 
-* [Chicago Taxi data](doc/chicagoTaxiData/README.MD)
+This content has been superseded by the `learn-druid` repository.
 
-You may also want to check out the [data generator](https://github.com/implydata/druid-datagenerator).
+[learn-druid](https://github.com/implydata/learn-druid)
